@@ -50,6 +50,8 @@ dig $domain > $ruta_resultados/raw/dig
 curl -I https://$domain > $ruta_resultados/raw/headers
 cat $ruta_resultados/raw/headers | grep -i 'server' | awk '{ print $2 }' > $ruta_resultados/clean/header_server
 
+# Scan completo
+sudo nmap -sS -Pn -sV -sC -O -vv --open --reason --min-hostgroup 16 --min-rate 100 --max-parallelism=10 -F -oA output_nmap scanme.nmap.org 
 
 # Revisar y eliminar archivos vacíos en la carpeta /clean
 for file in "$ruta_resultados/clean"/*; do
