@@ -1,5 +1,5 @@
 #!/bin/bash
-./reset.sh
+
 # Usar figlet para mostrar el nombre
 figlet -f slant suprimoware
 
